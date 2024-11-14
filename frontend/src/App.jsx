@@ -1,11 +1,8 @@
 import './app.css';
+import Layout from './layout/Layout';
 
 function App() {
-  return (
-    <>
-      <h1>Hello react + vite app</h1>
-    </>
-  )
+  return <Layout />
 }
 
 export default App
