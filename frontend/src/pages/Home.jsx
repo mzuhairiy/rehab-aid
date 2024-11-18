@@ -17,8 +17,8 @@ const Home = () => {
                                     md:leading-[70px]">
                                         Kami peduli dengan anda dan keluarga anda.
                                     </h1>
-                                    <p className="text__para">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus, dolorem. Molestias distinctio consequuntur ducimus
-                                        provident?
+                                    <p className="text__para">Kami menyediakan dukungan profesional untuk membantu Anda keluar dari jerat candu narkoba dan judi online. 
+                                        Mari pulihkan kehidupan yang lebih sehat, bahagia, dan bebas dari kecanduan.
                                     </p>
 
                                     <button className="btn">
