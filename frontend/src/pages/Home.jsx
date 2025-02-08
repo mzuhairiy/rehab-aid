@@ -9,6 +9,7 @@ import icon03 from '../assets/images/icon03.png'
 import { Link } from 'react-router-dom';
 import { BsArrowRight, } from 'react-icons/bs';
 import About from "../components/about/About";
+import ServiceList from "../components/services/ServiceList";
 
 const Home = () => {
     return (
@@ -105,7 +106,7 @@ const Home = () => {
                         World-class care for everyone. Our health system offers unmatched, expert health care. From the lab to the clinic.
                     </p>
 
-                    <Link to="/doctors" 
+                    <Link to="/psychiatrist" 
                         className="w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] mt-[30px]
                         mx-auto flex items-center justify-center group hover:bg-primaryColor
                         hover:border-none"
@@ -128,7 +129,7 @@ const Home = () => {
                         World-class care for everyone. Our health system offers unmatched, expert health care. From the lab to the clinic.
                     </p>
 
-                    <Link to="/doctors" 
+                    <Link to="/psychiatrist" 
                         className="w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] mt-[30px]
                         mx-auto flex items-center justify-center group hover:bg-primaryColor
                         hover:border-none"
@@ -151,7 +152,7 @@ const Home = () => {
                         World-class care for everyone. Our health system offers unmatched, expert health care. From the lab to the clinic.
                     </p>
 
-                    <Link to="/doctors" 
+                    <Link to="/psychiatrist" 
                         className="w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] mt-[30px]
                         mx-auto flex items-center justify-center group hover:bg-primaryColor
                         hover:border-none"
@@ -165,8 +166,7 @@ const Home = () => {
     </div>
     </section>
 
-    <About/>
-
+    <About/ >
     <section>
         <div className="container">
             <div className="xl:w-[470px] mx-auto">
@@ -176,10 +176,12 @@ const Home = () => {
                     expert health care.
                 </p>
             </div>
+
         </div>
     </section>
+    <ServiceList />
 </>
-)
+);
 };
 
 export default Home;
