@@ -26,7 +26,7 @@ export const doctors = [
   {
     id: "03",
     name: "Dr. Farid Uddin",
-    specialty: "Dermatologist",
+    specialization: "Dermatologist",
     avgRating: 4.8,
     totalRating: 272,
     photo: doctorImg03,
