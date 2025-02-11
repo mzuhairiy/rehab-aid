@@ -86,7 +86,7 @@ const Footer = () => {
           <div>
             <img src={logo} alt="" />
             <p className="text-[16px] leading-7 font-[400] text-textColor">
-              🅮{year}, Developed by Zuhair <br />
+              🅮{year} Developed by Zuhair <br />
               This software is released under{" "}
               <a
                 href="https://creativecommons.org/publicdomain/zero/1.0/"
@@ -96,8 +96,77 @@ const Footer = () => {
               >
                 CC0 1.0 Universal (Public Domain)
               </a>
-              . Free to use, modify, and distribute without restrictions.
             </p>
+            <div className="flex items-center gap-3 mt-4">
+              {socialLinks.map((link, index) => (
+                <Link
+                  to={link.path}
+                  key={index}
+                  className="w-9 h-9 border border-solid border-[#181A1E]
+                    rounded-full flex items-center justify-center group
+                    hover:bg-primaryColor hover:border-none"
+                >
+                  {link.icon}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-[20px] leading-[30px] font-[700] mb-6 text-headingColor">
+              Quick Links
+            </h2>
+
+            <ul>
+              {quickLinks01.map((item, index) => (
+                <li key={index} className="mb-4">
+                  <Link
+                    to={item.path}
+                    className="text-[16px] leading-7 font-[400] text-textColor"
+                  >
+                    {item.display}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-[20px] leading-[30px] font-[700] mb-6 text-headingColor">
+              Get Help
+            </h2>
+
+            <ul>
+              {quickLinks02.map((item, index) => (
+                <li key={index} className="mb-4">
+                  <Link
+                    to={item.path}
+                    className="text-[16px] leading-7 font-[400] text-textColor"
+                  >
+                    {item.display}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-[20px] leading-[30px] font-[700] mb-6 text-headingColor">
+              Support
+            </h2>
+
+            <ul>
+              {quickLinks03.map((item, index) => (
+                <li key={index} className="mb-4">
+                  <Link
+                    to={item.path}
+                    className="text-[16px] leading-7 font-[400] text-textColor"
+                  >
+                    {item.display}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
