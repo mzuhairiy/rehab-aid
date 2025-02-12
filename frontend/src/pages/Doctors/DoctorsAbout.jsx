@@ -10,7 +10,7 @@ const DoctorsAbout = () => {
         >
           About of
           <span className="text-irisBlueColor font-bold text-[24px] leading-9">
-            Muhammad Zuhairi
+            Dr. Saleh Mahmud
           </span>
         </h3>
         <p className="text__para">

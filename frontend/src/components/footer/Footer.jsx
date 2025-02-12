@@ -48,7 +48,7 @@ const quickLinks01 = [
 
 const quickLinks02 = [
   {
-    path: "/find-a-psychiatrist",
+    path: "/find-a-doctors",
     display: "Find a Doctor",
   },
   {

@@ -61,7 +61,7 @@ const DoctorCard = ({ doctor }) => {
         </div>
 
         <Link
-          to="/psychiatrist"
+          to="/doctor"
           className="w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] flex items-center
               justify-center group hover:bg-primaryColor hover:border-none"
         >
