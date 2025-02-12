@@ -1,5 +1,3 @@
-import React from "react";
-
 const SidePanel = () => {
   return (
     <div className="shadow-panelShadow p-3 lg:p-5 rounded-md">
@@ -26,7 +24,7 @@ const SidePanel = () => {
           </li>
           <li className="flex items-center justify-between mb-2">
             <p className="text-[15px] leading-6 text-textColor font-semibold">
-              Sunday
+              Monday
             </p>
             <p className="text-[15px] leading-6 text-textColor font-semibold">
               4:00 PM - 9:30 PM
@@ -34,7 +32,7 @@ const SidePanel = () => {
           </li>
           <li className="flex items-center justify-between mb-2">
             <p className="text-[15px] leading-6 text-textColor font-semibold">
-              Sunday
+              Wednesday
             </p>
             <p className="text-[15px] leading-6 text-textColor font-semibold">
               4:00 PM - 9:30 PM
