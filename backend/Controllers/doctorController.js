@@ -39,7 +39,9 @@ export const getSingleDoctor = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const doctor = await Doctor.findById(id).select("-password");
+    const doctor = await Doctor.findById(id)
+      .populate("reviews")
+      .select("-password");
 
     res.status(200).json({
       success: true,
@@ -53,20 +55,21 @@ export const getSingleDoctor = async (req, res) => {
 
 export const getAllDoctor = async (req, res) => {
   try {
-
-    const {query} = req.query
+    const { query } = req.query;
     let doctors;
 
-    if(query){
-        doctors = await Doctor.find({
-            isApproved:'approved', 
-            $or: [
-                {name:{ $regex:query, $options: "i"}},
-                {specialization:{ $regex:query, $options: "i"}},
-            ],
-        }).select("-password");
-    } else{
-        doctors = await Doctor.find({isApproved: "approved"}).select("-password");
+    if (query) {
+      doctors = await Doctor.find({
+        isApproved: "approved",
+        $or: [
+          { name: { $regex: query, $options: "i" } },
+          { specialization: { $regex: query, $options: "i" } },
+        ],
+      }).select("-password");
+    } else {
+      doctors = await Doctor.find({ isApproved: "approved" }).select(
+        "-password",
+      );
     }
 
     res.status(200).json({
