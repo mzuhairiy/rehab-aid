@@ -24,9 +24,7 @@ const useFetchData = (url) => {
         }
 
         setData(result.data);
-        console.log(result, "full API response");
         setLoading(false);
-
       } catch (err) {
         setLoading(false);
         setError(err.message);
