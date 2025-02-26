@@ -1,5 +1,5 @@
 import {useContext, useState} from 'react';
-import {authContext} from './../../context/AuthContext.jsx';
+import {authContext} from '../../context/AuthContext.jsx';
 
 import MyBookings from './MyBookings.jsx';
 import Profile from './Profile.jsx';

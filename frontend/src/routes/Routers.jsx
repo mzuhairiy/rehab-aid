@@ -30,7 +30,7 @@ const Routers = () => {
       }
       />
       <Route path="/doctors/profile/me" element={
-        <ProtectedRoute allowedRoles={['doctors']}>
+        <ProtectedRoute allowedRoles={['doctor']}>
           <Dashboard/>
         </ProtectedRoute>
       } 

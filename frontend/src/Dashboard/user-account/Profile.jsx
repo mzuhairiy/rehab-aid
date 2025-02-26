@@ -3,7 +3,7 @@ import signupImg from "../../assets/images/signup.gif";
 
 import { Link, useNavigate } from "react-router-dom";
 import uploadImageToCloudinary from "../../utils/uploadCloudinary.js";
-import { BASE_URL, token } from "../../../src/config.js";
+import { BASE_URL, token } from "../../config.js";
 import {toast} from 'react-toastify';
 import HashLoader from 'react-spinners/HashLoader';
 
