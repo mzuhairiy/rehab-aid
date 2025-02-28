@@ -22,8 +22,6 @@ const DoctorsDetails = () => {
     error,
   } = useFetchData(`${BASE_URL}/doctors/${id}`);
 
-  console.log("Doctor data:", doctor);
-
   const {
     name,
     qualifications,
@@ -118,7 +116,7 @@ const DoctorsDetails = () => {
 
             <div>
               <SidePanel
-                dcotorId={doctor._id}
+                doctorId={doctor._id}
                 ticketPrice={ticketPrice}
                 timeSlots={timeSlots}
               />
