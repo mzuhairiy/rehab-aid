@@ -23,7 +23,7 @@ const reviewSchema = new mongoose.Schema(
       default: 0,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 reviewSchema.pre(/^find/, function (next) {
@@ -44,7 +44,7 @@ reviewSchema.statics.calcAverageRatings = async function (doctorId) {
       $group: {
         _id: "$doctor",
         numOfRating: { $sum: 1 },
-        avgRating: { $avg: "$ratings" },
+        avgRating: { $avg: "$rating" },
       },
     },
   ]);
