@@ -6,7 +6,7 @@ import { BASE_URL } from "../../config.js";
 import Tabs from "../../dashboard/doctor-account/Tabs.jsx";
 import starIcon from "../../assets/images/Star.png";
 import DoctorAbout from "../../pages/Doctors/DoctorsAbout.jsx";
-import Profile from "../../Dashboard/doctor-account/Profile.jsx";
+import Profile from "../../dashboard/doctor-account/Profile.jsx";
 import Appointment from "./Appointment.jsx";
 
 const Dashboard = () => {

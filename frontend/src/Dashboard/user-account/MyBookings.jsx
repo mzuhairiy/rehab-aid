@@ -1,33 +1,40 @@
 import useFetchData from "../../hooks/useFetchData";
 import { BASE_URL } from "../../config";
-import DoctorCard from '../../components/doctors/DoctorCards';
-import Loading from '../../components/loader/Loading';
-import Error from '../../components/error/Error';
+import DoctorCard from "../../components/doctors/DoctorCards";
+import Loading from "../../components/loader/Loading";
+import Error from "../../components/error/Error";
 
 const MyBookings = () => {
-  
-  const {data:appointments, loading, error} = useFetchData(`${BASE_URL}/users/appointments/my-appointments`)
+  const {
+    data: appointments,
+    loading,
+    error,
+  } = useFetchData(`${BASE_URL}/users/appointments/my-appointments`);
 
-  return <div>
-    {loading && !error && <Loading/>}
+  return (
+    <div>
+      {loading && !error && <Loading />}
 
-    {error && !loading && <Error errMessage={error}/>}
+      {error && !loading && <Error errMessage={error} />}
 
-    {!loading && !error && (
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-        {appointments.map(doctor => (
-          <DoctorCard doctor={doctor} key={doctor.id}/>
-        ))}
-      </div>
-    )}
+      {!loading && !error && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          {appointments.map((appointments) => (
+            <DoctorCard doctor={appointments.doctor} key={appointments._id} />
+          ))}
+        </div>
+      )}
 
-    {!loading && !error && appointments.length === 0 && (
-      <h2 className="mt-5 text-center leading-7 text-[20px] font-semibold
-      text-primaryColor">
+      {!loading && !error && appointments.length === 0 && (
+        <h2
+          className="mt-5 text-center leading-7 text-[20px] font-semibold
+      text-primaryColor"
+        >
           You don't have any apppointment.
-      </h2>
-    )}
-  </div>
-}
+        </h2>
+      )}
+    </div>
+  );
+};
 
-export default MyBookings
+export default MyBookings;

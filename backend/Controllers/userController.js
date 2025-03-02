@@ -1,6 +1,7 @@
 import User from "../models/UserSchema.js";
 import Booking from "../models/BookingSchema.js";
 import Doctor from "../models/DoctorSchema.js";
+import mongoose from "mongoose";
 
 export const updateUser = async (req, res) => {
   const id = req.params.id;
@@ -94,20 +95,26 @@ export const getUserProfile = async (req, res) => {
 
 export const getMyAppointments = async (req, res) => {
   try {
-    const bookings = await Booking.find({ user: req.userId });
-    const doctorIds = bookings.map((el) => el.doctor.id);
-    const doctors = await Doctor.find({ _id: { $in: doctorIds } }).select(
-      "-password"
-    );
+    const bookings = await Booking.find({
+      user: new mongoose.Types.ObjectId(req.userId),
+    })
+      .populate("user")
+      .populate({
+        path: "doctor",
+        select: "name email specialization photo experiences",
+      })
+      .lean();
+
+    const doctors = bookings.map((el) => el.doctor);
 
     res.status(200).json({
       success: true,
       message: "Appointments are getting",
-      data: doctors,
+      data: bookings,
+      doctors,
     });
-  } catch (err) {
-    res
-      .status(500)
-      .json({ succes: false, message: "Something went wrong, cannot get" });
+  } catch (error) {
+    console.error("Error saat fetch bookings:", error);
+    return res.status(500).json({ success: false, message: error.message });
   }
 };

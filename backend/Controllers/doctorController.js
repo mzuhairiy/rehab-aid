@@ -95,7 +95,9 @@ export const getDoctorProfile = async (req, res) => {
     }
 
     const { password, ...rest } = doctor._doc;
-    const appointments = await Booking.find({ doctor: doctorId });
+    const appointments = await Booking.find({ doctor: doctorId })
+      .populate("user") // Tambahin populate user biar ada name & gender
+      .lean();
 
     res.status(200).json({
       success: true,
@@ -103,6 +105,7 @@ export const getDoctorProfile = async (req, res) => {
       data: { ...rest, appointments },
     });
   } catch (err) {
+    console.error("Error fetching", err);
     res
       .status(500)
       .json({ succes: false, message: "Something went wrong, cannot get" });

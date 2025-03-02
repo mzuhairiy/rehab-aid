@@ -3,14 +3,17 @@ import starIcon from "../../assets/images/Star.png";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 
-const DoctorCard = ({ doctor }) => {
+const DoctorCard = ({ doctor = {} }) => {
   const { name, avgRating, totalRating, photo, specialization, experiences } =
     doctor;
-
   return (
     <div className="p-3 lg:p-5">
       <div>
-        <img src={photo} className="w-full" alt="" />
+        <img
+          src={photo || "https://via.placeholder.com/150"}
+          className="w-full"
+          alt="Doctor Photo"
+        />
       </div>
       <h2
         className="text-[18px] leading-[30px] lg:text-[26px] lg:leading-9
@@ -44,7 +47,7 @@ const DoctorCard = ({ doctor }) => {
         <div>
           {}
           <p className="text-[14px] leading-6 font-[400] textColor">
-            At {experiences && experiences[0]?.hospital}
+            {experiences && experiences[0]?.hospital}
           </p>
         </div>
 
