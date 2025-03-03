@@ -101,7 +101,7 @@ export const getMyAppointments = async (req, res) => {
       .populate("user")
       .populate({
         path: "doctor",
-        select: "name email specialization photo experiences",
+        select: "name email specialization photo experiences totalRating  ",
       })
       .lean();
 
