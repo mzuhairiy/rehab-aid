@@ -37,7 +37,7 @@ const Home = () => {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip consequat.
+                    ullamco laboris nisi ut aliquip consequat testing.
                   </p>
 
                   <button className="btn">Request an appointment</button>
