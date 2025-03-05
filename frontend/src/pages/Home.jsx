@@ -31,13 +31,13 @@ const Home = () => {
                     className="text-[32px] leading-[40px] text-headingColor font-[800] md:text-[60px]
                                     md:leading-[70px]"
                   >
-                    Kami peduli dengan anda dan keluarga anda.
+                    We help patients live a healthy, longer life
                   </h1>
                   <p className="text__para">
-                    Kami menyediakan dukungan profesional untuk membantu Anda
-                    keluar dari jerat candu narkoba dan judi online. Mari
-                    pulihkan kehidupan yang lebih sehat, bahagia, dan bebas dari
-                    kecanduan.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
                   </p>
 
                   <button className="btn">Request an appointment</button>
