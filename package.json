@@ -1,5 +1,10 @@
 {
+  "scripts": {
+  "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+  "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
+},
   "dependencies": {
+    "eslint": "^9.21.0",
     "lint": "^0.8.19"
   }
 }
