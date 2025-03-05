@@ -3,7 +3,7 @@ import Loader from "../../components/loader/Loading.jsx";
 import Error from "../../components/error/Error.jsx";
 import useGetProfile from "../../hooks/useFetchData.jsx";
 import { BASE_URL } from "../../config.js";
-import Tabs from "../../dashboard/doctor-account/Tabs.jsx";
+import Tabs from "../../Dashboard/doctor-account/Tabs.jsx";
 import starIcon from "../../assets/images/Star.png";
 import DoctorAbout from "../../pages/Doctors/DoctorsAbout.jsx";
 import Profile from "../../dashboard/doctor-account/Profile.jsx";
