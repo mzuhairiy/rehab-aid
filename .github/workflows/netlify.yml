@@ -24,7 +24,7 @@ jobs:
         run: npm install -g netlify-cli
       
       - name: Run linting
-        run: npm run lint 
+        run: yarn run eslint . --ext .ts,.tsx
 
       - name: Deploy to Netlify
         run: netlify deploy --prod
