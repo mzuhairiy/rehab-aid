@@ -1,4 +1,4 @@
-name: Learning CI
+name: Build & Deploy ${{ github.run_number }} (${{ github.sha }})
 
 on:
   push:
@@ -17,10 +17,10 @@ jobs:
         working-directory: frontend
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # ✅ Update ke v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4  # ✅ Update ke v4
         with:
           node-version: 18
 
@@ -31,31 +31,32 @@ jobs:
         run: npm run build
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # ✅ Update ke v4
         with:
           name: frontend-build
           path: frontend/dist  # Sesuaikan dengan folder output build lo
+          retention-days: 1  # Artifact dihapus setelah 1 hari (opsional)
 
-  # lint:
-  #   name: Lint Code
-  #   runs-on: ubuntu-latest
-  #   defaults:
-  #     run:
-  #       working-directory: frontend
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v3
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4  # ✅ Update ke v4
 
-  #     - name: Install Node.js
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 18
+      - name: Install Node.js
+        uses: actions/setup-node@v4  # ✅ Update ke v4
+        with:
+          node-version: 18
 
-  #     - name: Install dependencies
-  #       run: npm install
+      - name: Install dependencies
+        run: npm install
 
-  #     - name: Run linting
-  #       run: npm run lint
+      - name: Run linting
+        run: npm run lint
 
   test:
     name: Run Unit Tests
@@ -65,10 +66,10 @@ jobs:
         working-directory: frontend
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # ✅ Update ke v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4  # ✅ Update ke v4
         with:
           node-version: 18
 
@@ -81,19 +82,19 @@ jobs:
   deploy:
     name: Deploy to Netlify
     runs-on: ubuntu-latest
-    needs: [build, test] # Deploy hanya jalan kalau build, lint, dan test sukses
+    needs: [build, lint, test] # Deploy hanya jalan kalau build, lint, dan test sukses
     defaults:
       run:
         working-directory: frontend
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # ✅ Update ke v4
 
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
 
       - name: Download build artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4  # ✅ Update ke v4
         with:
           name: frontend-build
           path: frontend/dist
