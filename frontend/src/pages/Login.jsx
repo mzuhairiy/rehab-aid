@@ -1,7 +1,8 @@
+import React from "react";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { authContext} from '../context/AuthContext.jsx'
+import { authContext } from "../context/AuthContext.jsx";
 import { BASE_URL } from "../../src/config.js";
 import HashLoader from "react-spinners/HashLoader.js";
 
@@ -11,7 +12,7 @@ const Login = () => {
     password: "",
   });
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { dispatch } = useContext(authContext);
 
@@ -20,44 +21,43 @@ const Login = () => {
   };
 
   const submitHandler = async (event) => {
-      event.preventDefault();
-      setLoading(true);
-  
-      try {
-        const res = await fetch(`${BASE_URL}/auth/login`,{
-          method: 'POST',
-          headers:{
-            'Content-Type':'application/json'
-          },
-          body: JSON.stringify(formData)
-        });
-  
-        const result = await res.json();
-  
-        if(!res.ok){
-          throw new Error(result.message)
-        }
-        
+    event.preventDefault();
+    setLoading(true);
 
-        dispatch({
-          type:'LOGIN_SUCCESS',
-          payload:{
-            user:result.data,
-            token:result.token,
-            role:result.role,
-          }
-        })
+    try {
+      const res = await fetch(`${BASE_URL}/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-        console.log(result, "login data")
+      const result = await res.json();
 
-        setLoading(false)
-        toast.success(result.message)
-        navigate('/home')
-      } catch (err) {
-        toast.error(err.message)
-        setLoading(false)
+      if (!res.ok) {
+        throw new Error(result.message);
       }
-    };
+
+      dispatch({
+        type: "LOGIN_SUCCESS",
+        payload: {
+          user: result.data,
+          token: result.token,
+          role: result.role,
+        },
+      });
+
+      console.log(result, "login data");
+
+      setLoading(false);
+      toast.success(result.message);
+      navigate("/home");
+    } catch (err) {
+      toast.error(err.message);
+      setLoading(false);
+    }
+  };
 
   return (
     <section className="px-5 lg:px-0">

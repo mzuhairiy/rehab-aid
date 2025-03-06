@@ -11,6 +11,11 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontend
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -25,9 +30,15 @@ jobs:
 
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
+
+      - name: Run build
+        run: npm run build
       
       - name: Run linting
         run: npm run lint
+
+      - name: Run unit test
+        run: npm run test
 
       - name: Deploy to Netlify
         run: netlify deploy --prod
