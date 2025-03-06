@@ -4,7 +4,7 @@ import "@testing-library/jest-dom";
 import Login from "./Login";
 import { MemoryRouter } from "react-router-dom";
 
-test("Login section displayed in the homepage", () => {
+test("Login displayed in the homepage", () => {
   render(
     <MemoryRouter>
       <Login />
