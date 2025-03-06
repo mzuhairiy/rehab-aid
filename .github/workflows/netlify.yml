@@ -1,4 +1,4 @@
-name: Build ${{ github.run_number }} (${{ github.sha }})
+name: Build & Deploy ${{ github.run_number }} (${{ github.sha }})
 
 on:
   push:
@@ -9,13 +9,12 @@ on:
       - main  
 
 jobs:
-  deploy:
+  build:
+    name: Build Frontend
     runs-on: ubuntu-latest
-
     defaults:
       run:
         working-directory: frontend
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -28,17 +27,76 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Run build
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: frontend-build
+          path: frontend/dist  # Sesuaikan dengan folder output build lo
+
+  # lint:
+  #   name: Lint Code
+  #   runs-on: ubuntu-latest
+  #   defaults:
+  #     run:
+  #       working-directory: frontend
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v3
+
+  #     - name: Install Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 18
+
+  #     - name: Install dependencies
+  #       run: npm install
+
+  #     - name: Run linting
+  #       run: npm run lint
+
+  test:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run unit tests
+        run: npm run test
+
+  deploy:
+    name: Deploy to Netlify
+    runs-on: ubuntu-latest
+    needs: [build, lint, test] # Deploy hanya jalan kalau build, lint, dan test sukses
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
 
-      - name: Run build
-        run: npm run build
-      
-      # - name: Run linting
-      #   run: npm run lint
-
-      - name: Run unit test
-        run: npm run test
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: frontend-build
+          path: frontend/dist
 
       - name: Deploy to Netlify
         run: netlify deploy --prod
