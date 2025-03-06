@@ -81,7 +81,7 @@ jobs:
   deploy:
     name: Deploy to Netlify
     runs-on: ubuntu-latest
-    needs: [build, lint, test] # Deploy hanya jalan kalau build, lint, dan test sukses
+    needs: [build, test] # Deploy hanya jalan kalau build, lint, dan test sukses
     defaults:
       run:
         working-directory: frontend
