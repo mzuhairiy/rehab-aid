@@ -1,4 +1,4 @@
-name: Build & Deploy ${{ github.run_number }} (${{ github.sha }})
+name: Learning CI
 
 on:
   push:
