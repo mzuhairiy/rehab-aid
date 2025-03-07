@@ -1,10 +1,10 @@
 import convertTime from "../../utils/convertTime";
 import { BASE_URL, token } from "./../../config.js";
 import { toast } from "react-toastify";
+import React from "react";
 
 const SidePanel = ({ doctorId, ticketPrice, timeSlots }) => {
   const bookingHandler = async () => {
-    console.log("Doctor ID before request:", doctorId);
     try {
       const res = await fetch(
         `${BASE_URL}/bookings/checkout-session/${doctorId}`,

@@ -1,12 +1,13 @@
 export default {
-  testEnvironment: "jsdom", // ⬅️ Supaya bisa test komponen React
+  testEnvironment: "jsdom",
   transform: {
-    "^.+\\.jsx?$": "babel-jest", // ⬅️ Biar Jest ngerti JSX
+    "^.+\\.jsx?$": "babel-jest",
   },
   moduleNameMapper: {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
   },
   moduleNameMapper: {
-    "\\.(png)$": "<rootDir>/src/__mocks__/fileMock.js",
+    "\\.(gif|png)$": "<rootDir>/src/__mocks__/fileMock.js",
   },
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
 };

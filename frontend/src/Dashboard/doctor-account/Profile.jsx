@@ -3,6 +3,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import uploadImageToCloudinary from "../../utils/uploadCloudinary";
 import { BASE_URL, token } from "../../config";
 import { toast } from "react-toastify";
+import React from "react";
 
 const Profile = ({ doctorData }) => {
   const [formData, setFormData] = useState({
@@ -192,7 +193,7 @@ const Profile = ({ doctorData }) => {
             className="form__input"
             readOnly
             aria-readonly
-            disabled="true"
+            disabled={true}
           />
         </div>
         <div className="mb-5">
