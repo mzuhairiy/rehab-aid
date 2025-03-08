@@ -2,9 +2,9 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { MemoryRouter } from "react-router-dom";
-import Services from "./Services";
+import Services from "../src/pages/Services";
 
-jest.mock("../assets/data/services", () => ({
+jest.mock("../src/assets/data/services", () => ({
   services: [
     {
       name: "Mock Service 1",

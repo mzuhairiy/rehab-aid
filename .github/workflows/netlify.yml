@@ -93,7 +93,7 @@ jobs:
         run: npm install
 
       - name: Run unit tests
-        run: npm run test -- --testPathIgnorePatterns="e2e"
+        run: npm run test --testPathIgnorePatterns="e2e"
 
   e2e-test:
     name: E2E Testing

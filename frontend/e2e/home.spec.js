@@ -8,13 +8,13 @@ test.describe("Homepage", () => {
 
   test("Should direct to find a doctor page", async ({ page }) => {
     await page.click("header li:nth-child(2) a:nth-child(1)");
-    await expect(page).toHaveURL("https://rehab-aid.netlify.app/doctors");
+    await expect(page).toHaveURL("http://localhost:5173/doctors");
     await expect(page.locator("h2[class='heading']")).toBeVisible();
   });
 
   test("Should direct to services page", async ({ page }) => {
     await page.click("header li:nth-child(3) a:nth-child(1)");
-    await expect(page).toHaveURL("https://rehab-aid.netlify.app/services");
+    await expect(page).toHaveURL("http://localhost:5173/services");
     await expect(
       page.locator("//h2[normalize-space()='Cancer Care']"),
     ).toBeVisible();
@@ -28,7 +28,7 @@ test.describe("Homepage", () => {
 
   test("Should direct to contact page", async ({ page }) => {
     await page.click("header li:nth-child(4) a:nth-child(1)");
-    await expect(page).toHaveURL("https://rehab-aid.netlify.app/contact");
+    await expect(page).toHaveURL("http://localhost:5173/contact");
     await expect(page.locator(".heading.text-center")).toContainText(
       "Contact Us",
     );
@@ -36,7 +36,7 @@ test.describe("Homepage", () => {
 
   test("Should direct to login page", async ({ page }) => {
     await page.click("//button[normalize-space()='Login']");
-    await expect(page).toHaveURL("https://rehab-aid.netlify.app/login");
+    await expect(page).toHaveURL("http://localhost:5173/login");
     await expect(
       page.locator(
         "h3[class='text-headingColor text-[22px] leading-9 font-bold mb-10']",

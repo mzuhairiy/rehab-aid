@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { authContext } from "../../context/AuthContext";
-import Tabs from "./Tabs";
+import { authContext } from "../src/context/AuthContext";
+import Tabs from "../src/Dashboard/doctor-account/Tabs";
 import "@testing-library/jest-dom";
 import React from "react";
 

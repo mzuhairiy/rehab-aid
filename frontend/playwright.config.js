@@ -1,10 +1,10 @@
 import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
-  testDir: "./tests",
+  testDir: "./e2e",
   timeout: 30000, // Timeout per test (30s)
   use: {
     headless: true,
-    baseURL: "https://rehab-aid.netlify.app/",
+    baseURL: "http://localhost:5173",
   },
 });
