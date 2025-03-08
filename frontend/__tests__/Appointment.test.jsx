@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import Appointment from "./Appointment";
-import { formatDate } from "../../utils/formatDate";
+import Appointment from "../src/Dashboard/doctor-account/Appointment";
+import { formatDate } from "../src/utils/formatDate";
 import "@testing-library/jest-dom";
 import React from "react";
 
-jest.mock("../../utils/formatDate", () => ({
+jest.mock("../src/utils/formatDate", () => ({
   formatDate: jest.fn(),
 }));
 

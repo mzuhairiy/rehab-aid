@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Contact from "./Contact";
+import Contact from "../src/pages/Contact";
 
 test("Contact section displayed in the homepage", () => {
   render(<Contact />);
