@@ -48,8 +48,8 @@ jobs:
               repo: context.repo.repo,
               sha: context.sha,
               state: "success",
-              context: "CI - Build & Test",
-              description: "Build & tests passed!",
+              context: "CI - Build",
+              description: "Build",
               target_url: "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             });
 
@@ -93,7 +93,7 @@ jobs:
         run: npm install
 
       - name: Run unit tests
-        run: npm run test
+        run: npm run test -- --testPathIgnorePatterns="e2e"
 
   e2e-test:
     name: E2E Testing
@@ -118,9 +118,6 @@ jobs:
 
       - name: Start application
         run: npm run dev &
-
-      - name: Wait for application to be ready
-        run: npx wait-on http://localhost:3000
 
       - name: Run Playwright E2E Tests
         run: npm run test:e2e
