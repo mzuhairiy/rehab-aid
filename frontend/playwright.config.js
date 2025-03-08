@@ -5,6 +5,6 @@ export default defineConfig({
   timeout: 30000, // Timeout per test (30s)
   use: {
     headless: true,
-    baseURL: "http://localhost:5173",
+    baseURL: process.env.BASE_URL || "http://localhost:3000",
   },
 });
