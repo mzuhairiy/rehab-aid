@@ -10,6 +10,6 @@ export default {
     "\\.(gif|png)$": "<rootDir>/src/__mocks__/fileMock.js",
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
-  testMatch: ["**/?(*.)+(test).js"], // Hanya unit test
-  testPathIgnorePatterns: ["<rootDir>/tests/"], // Skip folder E2E Playwright
+  testMatch: ["**/?(*.)+(spec|test).js"], // Hanya unit test
+  testPathIgnorePatterns: ["<rootDir>/tests/"],
 };
