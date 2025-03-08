@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "jest --coverage --coverageReporters=text"
+    "test": "jest --coverage --coverageReporters=text",
+    "test:e2e": "npx playwright test"
   },
   "dependencies": {
     "lint": "^0.8.19",
