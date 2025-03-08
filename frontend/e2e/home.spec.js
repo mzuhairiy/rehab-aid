@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test.describe("Homepage", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/");
+    await page.goto(process.env.BASE_URL || "http://localhost:5173"); // ✅ Handle kalau BASE_URL kosong
     await expect(page).toHaveTitle("Rehab-Aid");
   });
 
