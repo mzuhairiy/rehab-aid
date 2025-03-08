@@ -95,7 +95,7 @@ jobs:
       - name: Run unit tests
         run: npm run test
 
-e2e-test:
+  e2e-test:
     name: E2E Testing
     runs-on: ubuntu-latest
     defaults:
