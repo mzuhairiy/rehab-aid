@@ -106,7 +106,7 @@ jobs:
         run: |
           echo "BASE_URL=$(curl -s -H 'Authorization: Bearer $NETLIFY_AUTH_TOKEN' \
           https://api.netlify.com/api/v1/sites/4093732d-2e58-4050-a31b-7a4dbc4de2a1/deploys | \
-          jq -r 'map(select(.context=="deploy-preview")) | sort_by(.created_at) | last | .ssl_url')" >> $GITHUB_ENV
+          jq -r 'map(select(.context=="deploy-preview")) | sort_by(.created_at) | last | .deploy_ssl_url')" >> $GITHUB_ENV
 
       - name: Run Playwright E2E Tests
         run: npm run test:e2e
