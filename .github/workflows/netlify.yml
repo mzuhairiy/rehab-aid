@@ -94,3 +94,30 @@ jobs:
 
       - name: Run unit tests
         run: npm run test
+
+e2e-test:
+    name: E2E Testing
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Start application
+        run: npm run dev
+
+      - name: Run Playwright E2E Tests
+        run: npx playwright test
