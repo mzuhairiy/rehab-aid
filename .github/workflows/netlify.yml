@@ -109,6 +109,14 @@ jobs:
           https://api.netlify.com/api/v1/sites/4093732d-2e58-4050-a31b-7a4dbc4de2a1/deploys | \
           jq -r 'map(select(.context=="deploy-preview")) | sort_by(.created_at) | last | .deploy_ssl_url')" >> $GITHUB_ENV
 
+      - name: Install ImageMagick
+        run: sudo apt-get install imagemagick
+      
+      - name: Generate dummy image
+        run: |
+          mkdir -p frontend/src/assets/images
+          convert -size 100x100 xc:white frontend/src/assets/images/heroImg02.png
+
       - name: Run Playwright E2E Tests
         run: npm run test:e2e
         env:
