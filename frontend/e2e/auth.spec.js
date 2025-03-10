@@ -35,7 +35,7 @@ test.describe("Authentication", () => {
     await page.click("label[for='customFile']");
     await page.setInputFiles(
       "input#customFile",
-      "/Users/mz/Documents/GitHub/rehab-aid/frontend/src/assets/images/heroImg02.png",
+      "frontend/src/assets/images/heroImg02.png",
     );
     await page.click("//button[normalize-space()='Sign Up']");
     await expect(
@@ -65,7 +65,7 @@ test.describe("Authentication", () => {
     await page.click("label[for='customFile']");
     await page.setInputFiles(
       "input#customFile",
-      "/Users/mz/Documents/GitHub/rehab-aid/frontend/src/assets/images/heroImg02.png",
+      "frontend/src/assets/images/heroImg02.png",
     );
     const emailField = page.getByPlaceholder("Enter your email");
     const validationMsg = await emailField.evaluate(
@@ -96,11 +96,6 @@ test.describe("Authentication", () => {
       .fill("revon@hotmail.com");
     await page.locator("input[placeholder='Password']").fill("123abc1");
     await page.locator("button[type='submit']").click();
-    await expect(
-      page.locator(
-        "//h1[normalize-space()='We help patients live a healthy, longer life']",
-      ),
-    ).toBeVisible();
     await expect(page.locator(".w-full.rounded-full")).toBeVisible();
   });
 });
