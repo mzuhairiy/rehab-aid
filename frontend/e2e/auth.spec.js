@@ -38,11 +38,7 @@ test.describe("Authentication", () => {
       "frontend/src/assets/images/heroImg02.png",
     );
     await page.click("//button[normalize-space()='Sign Up']");
-    await expect(
-      page.locator(
-        "h3[class='text-headingColor text-[22px] leading-9 font-bold mb-10']",
-      ),
-    ).toContainText("Hello! Welcome");
+    await expect(page.getByText("Hello! Welcome")).toBeVisible();
   });
 
   test("User should not be able to register due to an invalid format.", async ({
@@ -96,6 +92,8 @@ test.describe("Authentication", () => {
       .fill("revon@hotmail.com");
     await page.locator("input[placeholder='Password']").fill("123abc1");
     await page.locator("button[type='submit']").click();
-    await expect(page.locator(".w-full.rounded-full")).toBeVisible();
+    await expect(page.locator(".w-full.rounded-full")).toBeVisible({
+      timeout: 5000,
+    });
   });
 });
