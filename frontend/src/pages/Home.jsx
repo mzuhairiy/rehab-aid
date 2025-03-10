@@ -10,7 +10,7 @@ import featureImg from "../assets/images/feature-img.png";
 import videoIcon from "../assets/images/video-icon.png";
 import avatarIcon from "../assets/images/avatar-icon.png";
 import faqImg from "../assets/images/faq-img.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import About from "../components/about/About";
 import ServiceList from "../components/services/ServiceList";
@@ -19,6 +19,7 @@ import FaqList from "../components/faq/FaqList";
 import Testimonial from "../components/testimonial/Testimonial";
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <>
       <>
@@ -40,7 +41,9 @@ const Home = () => {
                     ullamco laboris nisi ut aliquip consequat testing.
                   </p>
 
-                  <button className="btn">Request an appointment</button>
+                  <button className="btn" onClick={() => navigate("/doctors")}>
+                    Request an appointment
+                  </button>
                 </div>
 
                 <div
